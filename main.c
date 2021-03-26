@@ -4,8 +4,8 @@
 
 int		main(void)
 {
-	printf("%lc ", 'd');
+	printf("%c ", 175);
 	printf("\n");
-	ft_printf("%lc ", 'd');
+	ft_printf("%c ", 175);
 	return (0);
 }

@@ -6,17 +6,25 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 22:40:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 12:14:49 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:09:13 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void 	ft_putlchar(int c)
+{
+	
+	write(1, &c, 1); 
+}
+
+
+
 static void		ft_printascii(t_speci *val, t_edit edit, int c)
 {
 	if (!val->mode.left && edit.spaces)
 		ft_putnchar(edit.tspaces, edit.spaces);
-	ft_putchar(c);
+	ft_putlchar(c);
 	if (val->mode.left && edit.spaces)
 		ft_putnchar(edit.tspaces, edit.spaces);
 }
