@@ -4,6 +4,8 @@
 
 int		main(void)
 {
-	printf("% 3.3d", 5);
+	printf("% .d", 5);
+	printf("\n");
+	ft_printf("% .d", 5);
 	return (0);
 }

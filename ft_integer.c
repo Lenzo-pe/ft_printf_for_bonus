@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 16:08:16 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:31:14 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ static void	ft_printright(t_speci *val, t_edit edit)
 {
 	ft_putnchar(' ', edit.spaces);
 	if (val->mode.negat)
-		ft_putstr("-");
+		ft_putchar('-');
+	else if (val->mode.space)
+		ft_putchar(' ');
+	else if (val->mode.plus)
+		ft_putchar('+');
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 }
@@ -24,7 +28,11 @@ static void	ft_printright(t_speci *val, t_edit edit)
 static void	ft_printleft(t_speci *val, t_edit edit)
 {
 	if (val->mode.negat)
-		ft_putstr("-");
+		ft_putchar('-');
+	else if (val->mode.space)
+		ft_putchar(' ');
+	else if (val->mode.plus)
+		ft_putchar('+');
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 	ft_putnchar(' ', edit.spaces);
