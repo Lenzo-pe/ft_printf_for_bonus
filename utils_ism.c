@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 02:59:35 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/25 13:24:47 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:28:14 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_islength(int c)
 int		ft_islegal(int c)
 {
 	if (ft_isflag(c) || ft_isdigit(c) ||
-	c == '*' || c == '.')
+	c == '*' || c == '.' || ft_islength(c))
 		return (1);
 	return (0);
 }
