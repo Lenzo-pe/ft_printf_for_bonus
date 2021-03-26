@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 15:25:28 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:18:11 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			ft_porcent(t_speci *val);
 
 long long		ft_abs(long long n);
 
-void			ft_putchar(char c);
+void			ft_putchar(unsigned char c);
 void			ft_putstr(char *str);
 void			ft_putnchar(char c, size_t n);
 char			*ft_strdup(const char *str);

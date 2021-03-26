@@ -4,8 +4,8 @@
 
 int		main(void)
 {
-	printf("%-03.d ", 0);
+	printf("%lc ", 'd');
 	printf("\n");
-	ft_printf("%-03.d ", 0);
+	ft_printf("%lc ", 'd');
 	return (0);
 }
