@@ -24,6 +24,7 @@ OBS = $(SRC:.c=.o)
 $(NAME): ft_printf.h $(OBS)
 	$(CC) $(CFLAGS) -c $(SRC)
 	ar -rcs $(NAME) $(OBS)
+	rm -rf *o
 
 .PHONY: all clean fclean
 
