@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 23:08:08 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/24 22:38:36 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:29:10 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ static void	set_flags(const char *form, t_speci *val)
 	{
 		val->mode.zero = false;
 		val->mode.left = true;
+	}
+	if (*form == ' ' && !val->mode.plus)
+		val->mode.space = true;
+	if (*form == '+')
+	{
+		val->mode.plus = true;
+		val->mode.space = false;
 	}
 }
 

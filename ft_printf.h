@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 12:15:41 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:25:28 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct	s_modes
 	bool		width;
 	bool		preci;
 	bool		negat;
+	bool		plus;
+	bool		space;
 }				t_modes;
 
 typedef struct	s_utilities

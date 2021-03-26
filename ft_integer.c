@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/25 15:01:31 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:08:16 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ void		ft_integer(t_speci *val, va_list ap)
 		val->slen++;
 		val->preci++;
 		val->mode.negat = true;
+		val->mode.space = false;
+		val->mode.plus = false;
+	}
+	if (val->mode.space)
+	{
+		val->slen++;
+		val->preci++;
+	}
+	if (val->mode.plus)
+	{
+		val->slen++;
+		val->preci++;
 	}
 	if (!n && val->mode.preci && !val->preci)
 	{

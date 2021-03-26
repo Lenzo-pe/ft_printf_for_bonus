@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 12:09:43 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:44:37 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	pre_settings(t_speci *val)
 	val->mode.preci = false;
 	val->mode.width = false;
 	val->mode.negat = false;
+	val->mode.space = false;
+	val->mode.plus = false;
 	val->width = 0;
 	val->preci = 0;
 }
