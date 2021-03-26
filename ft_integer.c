@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 16:31:14 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:47:57 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,15 @@ void		ft_integer(t_speci *val, va_list ap)
 		val->mode.space = false;
 		val->mode.plus = false;
 	}
+	if (!n && val->mode.preci && !val->preci)
+	{
+		val->slen--;
+		val->str = ft_strdup("");
+	}
+	else if (!n)
+		val->str = ft_strdup("0");
+	else
+		val->str = ft_itoa(n);
 	if (val->mode.space)
 	{
 		val->slen++;
@@ -72,15 +81,6 @@ void		ft_integer(t_speci *val, va_list ap)
 		val->slen++;
 		val->preci++;
 	}
-	if (!n && val->mode.preci && !val->preci)
-	{
-		val->slen--;
-		val->str = ft_strdup("");
-	}
-	else if (!n)
-		val->str = ft_strdup("0");
-	else
-		val->str = ft_itoa(n);
 	edit = ft_mathlab(val);
 	ft_printinteger(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;
