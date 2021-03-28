@@ -1,11 +1,18 @@
 #include "ft_printf.h"
 #include <stdio.h>
-
+#include <locale.h>
+#include <unistd.h>
+#include <locale.h>
+#include <wchar.h>
 
 int		main(void)
 {
-	printf("%c ", 175);
+	int n;
+
+	ft_printf("pipoca%n", &n);
+
 	printf("\n");
-	ft_printf("%c ", 175);
-	return (0);
+	printf("%d", n);
+
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 15:44:37 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:41:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int			ft_whatisnext(const char *form, va_list ap, t_speci *val)
 		ft_hexadecimal(val, ap, def);
 	if (def == 'p')
 		ft_pointer(val, ap);
+	if (def == 'n')
+		ft_number(val, ap);
 	val->util.skip += 2;
 	return (val->len);
 }

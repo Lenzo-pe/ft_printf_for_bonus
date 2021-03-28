@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 18:18:11 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:23:56 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <locale.h>
 # define FT_ERROR -1
 
 typedef struct	s_editor
@@ -70,6 +71,8 @@ void			ft_pointer(t_speci *val, va_list ap);
 void			ft_character(t_speci *val, va_list ap);
 void			ft_string(t_speci *val, va_list ap);
 void			ft_porcent(t_speci *val);
+void			ft_number(t_speci *val, va_list ap);
+
 
 long long		ft_abs(long long n);
 
