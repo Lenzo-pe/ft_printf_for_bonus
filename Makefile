@@ -7,14 +7,14 @@ SRC = ft_printf.c \
 		utils_put.c utils_len.c \
 		utils_conv.c utils_isa.c \
 		utils_ism.c utils_util.c \
-		utils_alloc.c \
+		utils_alloc.c utils_ftoa.c\
 		\
 		ft_whatisnext.c ft_settings.c\
 		\
 		ft_integer.c ft_unsignedint.c \
 		ft_hexadecimal.c ft_pointer.c \
 		ft_string.c ft_character.c \
-		ft_porcent.c ft_number.c\
+		ft_porcent.c ft_number.c \
 		\
 		ft_mathlab.c \
 		\

@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/28 00:23:56 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/28 19:41:00 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,5 @@ int				ft_isspecifier(int c);
 int				ft_atoi(const char *nptr);
 char			*ft_xtoa(unsigned long long n, int c);
 char			*ft_itoa(long long n);
-
+char			*ft_ftoa(double n, size_t len);
 #endif

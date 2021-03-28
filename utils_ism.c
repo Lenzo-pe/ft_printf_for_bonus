@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 02:59:35 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/28 00:47:43 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/28 01:11:47 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int		ft_islegal(int c)
 int		ft_isspecifier(int c)
 {
 	if (c == '%' || c == 'c' || c == 's' || c == 'd' || c == 'i' ||
-	c == 'u' || c == 'p' || c == 'x' || c == 'X' || c == 'n')
+	c == 'u' || c == 'p' || c == 'x' || c == 'X' || c == 'n' ||
+	c == 'f')
 		return (1);
 	return (0);
 }
