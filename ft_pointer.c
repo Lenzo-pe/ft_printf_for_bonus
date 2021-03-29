@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:34:47 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 12:12:58 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 01:15:28 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void		ft_pointer(t_speci *val, va_list ap)
 		val->str = ft_strdup("");
 		val->slen--;
 	}
-	else if (!n)
-		val->str = ft_strdup("0");
 	else
 		val->str = ft_xtoa(n, 'a');
 	if (val->mode.preci)

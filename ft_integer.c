@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 19:05:35 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 01:20:00 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,7 @@ void		ft_integer(t_speci *val, va_list ap)
 		val->str = ft_strdup("0");
 	else
 		val->str = ft_itoa(n);
-	if (val->mode.space)
-	{
-		val->slen++;
-		val->preci++;
-	}
-	if (val->mode.plus)
+	if (val->mode.space || val->mode.plus)
 	{
 		val->slen++;
 		val->preci++;
