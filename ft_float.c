@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ftoa.c                                          :+:      :+:    :+:   */
+/*   ft_float.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 02:37:00 by lenzo-pe         ###   ########.fr       */
+/*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
+/*   Updated: 2021/03/29 03:06:08 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_ftoa(long double n, size_t len)
+void		ft_float(t_speci *val, va_list ap)
 {
-	uint64_t	left;
-	uint64_t	right;
-	uint64_t	pow;
-	size_t		i;
-	char		*str;
+	long double	n;
 
-	pow = 1;
-	i = len;
-	while (i--)
-		pow *= 10;
-	left = (unsigned int)n;
-	n = n - (double)left;
-	right = n * pow;
-	right = right % pow;
-	str = ft_itoa(left);
-	if (len)
-	{
-		str = ft_joindel(str, ".");
-		str = ft_joindelall(str, ft_itoa(right));
-	}
-	return (str);
+	n = va_arg(ap, double);
+	if (!val->mode.preci)
+		val->preci = 6;
+	val->str = ft_ftoa(n, val->preci);
+	val->slen = ft_strlen(val->str);
+	ft_putstr(val->str);
+	ft_strdel(&val->str);
 }

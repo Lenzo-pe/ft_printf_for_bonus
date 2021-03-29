@@ -18,6 +18,7 @@ SRC = ft_printf.c \
 		ft_hexadecimal.c ft_pointer.c \
 		ft_string.c ft_character.c \
 		ft_porcent.c ft_number.c \
+		ft_float.c \
 		\
 		ft_mathlab.c \
 		\

@@ -11,8 +11,11 @@
 
 int		main(void)
 {
-	char *str;
+	double	d;
 
-	printf("%s", str);
+	d = 3.5;
+	ft_printf("%7.5f", d);
+	printf("\n");
+	printf("%7.5f", d);
 	return (0);
 }
