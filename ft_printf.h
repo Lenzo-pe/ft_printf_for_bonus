@@ -6,13 +6,14 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 12:29:47 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 16:04:44 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <math.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>

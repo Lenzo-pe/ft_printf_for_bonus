@@ -13,10 +13,10 @@ int		main(void)
 {
 	float	d;
 	int a, b;
-	d = 1 / 1000;
-	a = ft_printf("%50.16f ;", 1.0 / 100000);
+	d = 1.0 / 0;
+	a = ft_printf("%050.16f ;", d);
 	printf("\n");
-	b = printf("%50.16f ;", 1.0 / 100000);
+	b = printf("%050.16f ;", d);
 
 	printf("\n %d\n %d\n", a, b);
 	return (0);

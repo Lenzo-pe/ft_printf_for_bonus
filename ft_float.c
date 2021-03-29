@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 14:17:24 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 16:07:42 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ void		ft_float(t_speci *val, va_list ap)
 	if (n < 0)
 		ft_setnegative(val);
 	n = ft_fabs(n);
-	val->str = ft_ftoa(n, val->preci);
+	if (n == INFINITY)
+		val->str = ft_strdup("inf");
+	else
+		val->str = ft_ftoa(n, val->preci);
 	val->slen += ft_strlen(val->str);
 	edit = ft_floatlab(val);
 	ft_printfloat(val, edit);
