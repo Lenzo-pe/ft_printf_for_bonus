@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 00:49:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 01:29:28 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 02:05:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_itoa(long long n)
 	size_t	len;
 
 	if (!n)
-		return(ft_strdup("0"));
+		return (ft_strdup("0"));
 	len = ft_nbrlen(n);
 	if (n < 0)
 		len++;

@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 01:30:38 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 02:11:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,15 @@ static void	ft_printinteger(t_speci *val, t_edit edit)
 		ft_printleft(val, edit);
 }
 
+static void	ft_setnegative(t_speci *val)
+{
+	val->slen++;
+	val->preci++;
+	val->mode.negat = true;
+	val->mode.space = false;
+	val->mode.plus = false;
+}
+
 void		ft_integer(t_speci *val, va_list ap)
 {
 	t_edit	edit;
@@ -54,14 +63,8 @@ void		ft_integer(t_speci *val, va_list ap)
 	n = va_arg(ap, int);
 	val->slen = ft_nbrlen(n);
 	if (n < 0)
-	{
-		n = ft_abs(n);
-		val->slen++;
-		val->preci++;
-		val->mode.negat = true;
-		val->mode.space = false;
-		val->mode.plus = false;
-	}
+		ft_setnegative(val);
+	n = ft_abs(n);
 	if (!n && val->mode.preci && !val->preci)
 	{
 		val->slen--;
