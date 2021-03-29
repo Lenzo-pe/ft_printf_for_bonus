@@ -13,11 +13,11 @@ int		main(void)
 {
 	double	d;
 	int a, b;
-	d = 3.5;
-	a = ft_printf("%-50.15f;", -2.5567);
+	d = -42;
+	a = ft_printf("%20.4f", d);
 	printf("\n");
-	b = printf("%-50.15f;", -2.5567);
+	b = printf("%20.4f", d);
 
-	printf("\n %d%d", a, b);
+	printf("\n %d\n %d\n", a, b);
 	return (0);
 }

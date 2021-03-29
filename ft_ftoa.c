@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 02:37:00 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 14:08:47 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,13 @@ char		*ft_ftoa(long double n, size_t len)
 	if (len)
 	{
 		str = ft_joindel(str, ".");
-		str = ft_joindelall(str, ft_itoa(right));
+		if (!right)
+		{
+			while (len--)
+			str = ft_joindelall(str, ft_itoa(right));
+		}
+		else
+			str = ft_joindelall(str, ft_itoa(right));
 	}
 	return (str);
 }
