@@ -11,12 +11,12 @@
 
 int		main(void)
 {
-	double	d;
+	float	d;
 	int a, b;
-	d = -42;
-	a = ft_printf(" %f %f ;", 42.0, 42.0);
+	d = 1 / 1000;
+	a = ft_printf("%50.16f ;", 1.0 / 100000);
 	printf("\n");
-	b = printf(" %f %f ;", 42.0, 42.0);
+	b = printf("%50.16f ;", 1.0 / 100000);
 
 	printf("\n %d\n %d\n", a, b);
 	return (0);

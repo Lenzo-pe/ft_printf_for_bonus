@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 14:08:47 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 15:42:21 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,21 @@ char		*ft_ftoa(long double n, size_t len)
 {
 	uint64_t	left;
 	uint64_t	right;
-	uint64_t	pow;
-	size_t		i;
 	char		*str;
 
-	pow = 1;
-	i = len;
-	while (i--)
-		pow *= 10;
 	left = (unsigned int)n;
 	n = n - (double)left;
-	right = n * pow;
-	right = right % pow;
 	str = ft_itoa(left);
 	if (len)
 	{
 		str = ft_joindel(str, ".");
-		if (!right)
+		while(len--)
 		{
-			while (len--)
+			n *= 10;
+			right = n;
+			right %= 10;
 			str = ft_joindelall(str, ft_itoa(right));
 		}
-		else
-			str = ft_joindelall(str, ft_itoa(right));
 	}
 	return (str);
 }
