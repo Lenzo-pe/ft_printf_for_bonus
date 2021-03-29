@@ -5,9 +5,12 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = ft_printf.c \
 		\
 		utils_put.c utils_len.c \
-		utils_conv.c utils_isa.c \
-		utils_ism.c utils_util.c \
-		utils_alloc.c utils_ftoa.c\
+		utils_isa.c utils_ism.c \
+		utils_util.c \
+		utils_alloc.c \
+		\
+		ft_itoa.c ft_ftoa.c ft_xtoa.c\
+		ft_atoi.c \
 		\
 		ft_whatisnext.c ft_settings.c\
 		\

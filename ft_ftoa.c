@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_ftoa.c                                       :+:      :+:    :+:   */
+/*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/28 19:43:58 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 01:01:47 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,23 +79,26 @@ static char	*ft_joindelall(char *s1, char *s2)
 	return (ptr);
 }
 
-char		*ft_ftoa(double n, size_t len)
+char		*ft_ftoa(long double n, size_t len)
 {
-	unsigned left;
-	unsigned right;
-	unsigned pow;
-	char	*str;
+	uint64_t	left;
+	uint64_t	right;
+	uint64_t	pow;
+	size_t		i;
+	char		*str;
 
 	pow = 1;
-	while (len--)
+	i = len;
+	while (i--)
 		pow *= 10;
 	left = (unsigned int)n;
-	n = n - (float)left;
+	n = n - (double)left;
 	right = n * pow;
 	right =  right % pow;
 
 	str = ft_itoa(left);
-	str = ft_joindel(str, ".");
+	if (len)
+		str = ft_joindel(str, ".");
 	str = ft_joindelall(str, ft_itoa(right));
 	return (str);
 }
