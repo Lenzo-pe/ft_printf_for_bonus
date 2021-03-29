@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 12:42:15 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 14:17:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void		ft_float(t_speci *val, va_list ap)
 	val->slen += ft_strlen(val->str);
 	edit = ft_floatlab(val);
 	ft_printfloat(val, edit);
-	val->len = val->slen + edit.spaces + edit.zeros;
+	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
 }

@@ -14,9 +14,9 @@ int		main(void)
 	double	d;
 	int a, b;
 	d = -42;
-	a = ft_printf("%20.4f", d);
+	a = ft_printf(" %f %f ;", 42.0, 42.0);
 	printf("\n");
-	b = printf("%20.4f", d);
+	b = printf(" %f %f ;", 42.0, 42.0);
 
 	printf("\n %d\n %d\n", a, b);
 	return (0);
