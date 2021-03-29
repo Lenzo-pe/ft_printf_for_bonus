@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 21:23:55 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 02:12:40 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 12:12:49 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ char		*ft_strcat(char *dest, const char *src)
 {
 	ft_strcpy((dest + ft_strlen(dest)), src);
 	return (dest);
-}
-
-long long	ft_abs(long long n)
-{
-	if (n < 0)
-		n *= -1;
-	return (n);
 }
 
 static void	ft_swapchr(char *a, char *b)

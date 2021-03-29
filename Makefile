@@ -6,7 +6,7 @@ SRC = ft_printf.c \
 		\
 		utils_put.c utils_len.c \
 		utils_isa.c utils_ism.c \
-		utils_util.c \
+		utils_util.c utils_abs.c \
 		utils_alloc.c \
 		\
 		ft_itoa.c ft_ftoa.c ft_xtoa.c\
