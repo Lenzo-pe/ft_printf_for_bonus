@@ -9,15 +9,17 @@
 #include <string.h>
 
 
+
 int		main(void)
 {
 	float	d;
 	int a, b;
 	d = 1.0 / 0;
-	a = ft_printf("%050.16f ;", d);
+	a = ft_printf("%.0f", 5.6);
 	printf("\n");
-	b = printf("%050.16f ;", d);
+	b = printf("%.0f", 5.6);
 
 	printf("\n %d\n %d\n", a, b);
+
 	return (0);
 }
