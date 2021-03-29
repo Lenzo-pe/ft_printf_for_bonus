@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 03:06:08 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 03:18:13 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void		ft_float(t_speci *val, va_list ap)
 	val->str = ft_ftoa(n, val->preci);
 	val->slen = ft_strlen(val->str);
 	ft_putstr(val->str);
+	val->len = val->slen;
 	ft_strdel(&val->str);
 }

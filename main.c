@@ -12,10 +12,12 @@
 int		main(void)
 {
 	double	d;
-
+	int a, b;
 	d = 3.5;
-	ft_printf("%7.5f", d);
+	a = ft_printf("%7.5f", d);
 	printf("\n");
-	printf("%7.5f", d);
+	b = printf("%7.5f", d);
+
+	printf("\n %d%d", a, b);
 	return (0);
 }
