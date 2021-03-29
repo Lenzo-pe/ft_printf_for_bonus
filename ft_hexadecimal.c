@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/26 12:12:27 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 01:10:54 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void		ft_hexadecimal(t_speci *val, va_list ap, int def)
 		val->slen--;
 		val->str = ft_strdup("");
 	}
-	else if (!n)
-		val->str = ft_strdup("0");
 	else
 		val->str = ft_xtoa(n, def);
 	edit = ft_mathlab(val);
