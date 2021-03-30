@@ -13,11 +13,18 @@
 int		main(void)
 {
 	float	d;
+	float	i;
 	int a, b;
-	d = 1.0 / 0;
-	a = ft_printf(" %10f ", 1.0 / 0);
+	d = 0.0 / 0;
+	i = 0.0 / 0;
+	if (d == i)
+	{
+		printf("NAN");
+		return (0);
+	}
+	a = ft_printf(" %10f ", d);
 	printf("\n");
-	b = printf(" %10f ", 1.0 / 0);
+	b = printf(" %10f ", d);
 
 	printf("\n %d\n %d\n", a, b);
 	setlocale(LC_ALL, "");

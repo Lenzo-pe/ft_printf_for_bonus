@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 21:40:23 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 13:35:40 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ static void		ft_printright(t_speci *val, t_edit edit)
 	ft_putnchar(' ', edit.spaces);
 	if (val->mode.negat)
 		ft_putchar('-');
+	else if (val->mode.space)
+		ft_putchar(' ');
+	else if (val->mode.plus)
+		ft_putchar('+');
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 }
@@ -25,6 +29,10 @@ static void		ft_printleft(t_speci *val, t_edit edit)
 {
 	if (val->mode.negat)
 		ft_putchar('-');
+	else if (val->mode.space)
+		ft_putchar(' ');
+	else if (val->mode.plus)
+		ft_putchar('+');
 	ft_putstr(val->str);
 	ft_putnchar(' ', edit.spaces);
 }
@@ -71,8 +79,10 @@ void		ft_float(t_speci *val, va_list ap)
 	if (!val->mode.preci)
 		val->preci = 6;
 	if (n < 0)
+	{	
 		ft_setnegative(val);
-	n = ft_fabs(n);
+		n = ft_fabs(n);
+	}
 	if (n == INFINITY)
 	{
 		val->str = ft_strdup("inf");
