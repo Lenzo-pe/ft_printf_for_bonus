@@ -15,11 +15,13 @@ int		main(void)
 	float	d;
 	int a, b;
 	d = 1.0 / 0;
-	a = ft_printf("%.0f", 5.6);
+	a = ft_printf(" %10f ", 1.0 / 0);
 	printf("\n");
-	b = printf("%.0f", 5.6);
+	b = printf(" %10f ", 1.0 / 0);
 
 	printf("\n %d\n %d\n", a, b);
+	setlocale(LC_ALL, "");
+	printf("%lc", L'\u03C2');
 
 	return (0);
 }

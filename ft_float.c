@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 16:11:01 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/29 21:40:23 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void		ft_float(t_speci *val, va_list ap)
 	if (n == INFINITY)
 	{
 		val->str = ft_strdup("inf");
+		val->mode.zero = false;
+	}
+	else if (n == NAN)
+	{
+		val->str = ft_strdup("nan");
 		val->mode.zero = false;
 	}
 	else
