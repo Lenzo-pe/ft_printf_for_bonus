@@ -22,13 +22,10 @@ int		main(void)
 		printf("NAN");
 		return (0);
 	}
-	a = ft_printf(" %10f ", d);
+	a = ft_printf(" % f ", 0.);
 	printf("\n");
-	b = printf(" %10f ", d);
+	b = printf(" % f ", 0.);
 
 	printf("\n %d\n %d\n", a, b);
-	setlocale(LC_ALL, "");
-	printf("%lc", L'\u03C2');
-
 	return (0);
 }

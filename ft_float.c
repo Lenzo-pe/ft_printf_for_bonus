@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 13:35:40 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 13:44:43 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void		ft_float(t_speci *val, va_list ap)
 		ft_setnegative(val);
 		n = ft_fabs(n);
 	}
+	if (val->mode.space || val->mode.plus)
+		val->slen++;
 	if (n == INFINITY)
 	{
 		val->str = ft_strdup("inf");
