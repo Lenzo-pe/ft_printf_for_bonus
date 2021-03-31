@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_character.c                                     :+:      :+:    :+:   */
+/*   ft_ascii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 22:40:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:21:00 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:27:10 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		ft_printascii(t_speci *val, t_edit edit, int c)
 		ft_putnchar(edit.tspaces, edit.spaces);
 }
 
-void			ft_character(t_speci *val, va_list ap)
+void			ft_ascii(t_speci *val, va_list ap)
 {
 	t_edit	edit;
 	int		c;

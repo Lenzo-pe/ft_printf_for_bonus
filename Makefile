@@ -16,7 +16,7 @@ SRC = ft_printf.c \
 		\
 		ft_integer.c ft_unsignedint.c \
 		ft_hexadecimal.c ft_pointer.c \
-		ft_string.c ft_character.c \
+		ft_string.c ft_ascii.c \
 		ft_number.c \
 		ft_float.c ft_exponent.c \
 		\
