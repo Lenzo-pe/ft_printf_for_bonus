@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 15:12:14 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:14:07 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	pre_settings(t_speci *val)
 	val->mode.negat = false;
 	val->mode.space = false;
 	val->mode.plus = false;
+	val->c = 0;
 	val->slen = 0;
 	val->width = 0;
 	val->preci = 0;
@@ -46,33 +47,31 @@ static int	definef(const char *form, t_speci *val)
 
 int			ft_whatisnext(const char *form, va_list ap, t_speci *val)
 {
-	int	def;
-
 	form++;
-	def = definef(form, val);
-	if (!def)
-		return (FT_ERROR);
 	pre_settings(val);
+	val->c = definef(form, val);
+	if (!val->c)
+		return (FT_ERROR);
 	settings(form, val, ap);
-	if (def == '%')
+	if (val->c == '%')
 		ft_porcent(val);
-	if (def == 'c')
+	if (val->c == 'c')
 		ft_character(val, ap);
-	if (def == 's')
+	if (val->c == 's')
 		ft_string(val, ap);
-	if (def == 'd' || def == 'i')
+	if (val->c == 'd' || val->c == 'i')
 		ft_integer(val, ap);
-	if (def == 'u')
+	if (val->c == 'u')
 		ft_unsignedint(val, ap);
-	if (def == 'x' || def == 'X')
-		ft_hexadecimal(val, ap, def);
-	if (def == 'p')
+	if (val->c == 'x' || val->c == 'X')
+		ft_hexadecimal(val, ap);
+	if (val->c == 'p')
 		ft_pointer(val, ap);
-	if (def == 'n')
+	if (val->c == 'n')
 		ft_number(val, ap);
-	if (def == 'f')
+	if (val->c == 'f')
 		ft_float(val, ap);
-	if (def == 'e')
+	if (val->c == 'e')
 		ft_exponent(val, ap);
 	val->util.skip += 2;
 	return (val->len);
