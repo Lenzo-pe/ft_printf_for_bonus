@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:27:30 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:33:28 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ size_t			xnbrlen(unsigned long long n);
 
 t_edit			ft_numberlab(t_speci *val);
 t_edit			ft_asciilab(t_speci *val);
+t_edit			ft_floatlab(t_speci *val);
 
 int				ft_isdigit(int c);
 int				ft_isalpha(int c);
