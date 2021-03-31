@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:14:07 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:23:26 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ int			ft_whatisnext(const char *form, va_list ap, t_speci *val)
 	if (!val->c)
 		return (FT_ERROR);
 	settings(form, val, ap);
-	if (val->c == '%')
-		ft_porcent(val);
-	if (val->c == 'c')
+	if (val->c == '%' || val->c == 'c')
 		ft_character(val, ap);
 	if (val->c == 's')
 		ft_string(val, ap);

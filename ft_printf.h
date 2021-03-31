@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:14:51 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:22:41 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void			ft_hexadecimal(t_speci *val, va_list ap);
 void			ft_pointer(t_speci *val, va_list ap);
 void			ft_character(t_speci *val, va_list ap);
 void			ft_string(t_speci *val, va_list ap);
-void			ft_porcent(t_speci *val);
 void			ft_number(t_speci *val, va_list ap);
 void			ft_float(t_speci *val, va_list ap);
 void			ft_exponent(t_speci *val, va_list ap);

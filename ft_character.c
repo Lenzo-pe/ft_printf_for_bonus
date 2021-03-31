@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 22:40:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 22:50:04 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 23:21:00 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ static void		ft_printascii(t_speci *val, t_edit edit, int c)
 
 void			ft_character(t_speci *val, va_list ap)
 {
-	int		c;
 	t_edit	edit;
+	int		c;
 
-	c = va_arg(ap, int);
+	if (val->c == '%')
+		c = '%';
+	else
+		c = va_arg(ap, int);
 	edit = ft_asciilab(val);
 	ft_printascii(val, edit, c);
 	val->len += 1 + edit.spaces;
