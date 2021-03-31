@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:33:52 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:38:23 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,9 @@ void		ft_exponent(t_speci *val, va_list ap)
 	int				e;
 	
 	e = 0;
-	val->slen += 4;
 	n = va_arg(ap, double);
+	if (n != INFINITY && n != NAN)
+		val->slen += 4;
 	if (!val->mode.preci)
 		val->preci = 6;
 	if (n < 0)
@@ -102,17 +103,13 @@ void		ft_exponent(t_speci *val, va_list ap)
 	}
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
-	if (n == INFINITY)
+	if (n == INFINITY || n == NAN)
 	{
-		val->str = ft_strdup("inf");
 		val->mode.zero = false;
-		val->slen -= 4;
-	}
-	else if (n == NAN)
-	{
-		val->str = ft_strdup("nan");
-		val->mode.zero = false;
-		val->slen -= 4;
+		if (n == INFINITY)
+			val->str = ft_strdup("inf");
+		else if (n == NAN)
+			val->str = ft_strdup("nan");
 	}
 	else
 		val->str = ft_ftoa(n, val->preci);
@@ -123,4 +120,5 @@ void		ft_exponent(t_speci *val, va_list ap)
 	ft_printexponent(val, edit, n, xxe);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
+	ft_strdel(&xxe);
 }
