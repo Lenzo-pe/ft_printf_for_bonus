@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:32:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 01:30:52 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:53:50 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_unsignedint(t_speci *val, va_list ap)
 	}
 	else
 		val->str = ft_itoa(n);
-	edit = ft_mathlab(val);
+	edit = ft_numberlab(val);
 	ft_printinteger(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;
 	ft_strdel(&val->str);

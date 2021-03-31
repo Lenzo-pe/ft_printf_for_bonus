@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:34:47 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 01:15:28 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:54:33 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		ft_pointer(t_speci *val, va_list ap)
 		val->str = ft_xtoa(n, 'a');
 	if (val->mode.preci)
 		val->preci += 2;
-	edit = ft_mathlab(val);
+	edit = ft_numberlab(val);
 	val->preci -= 2;
 	ft_printpointer(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;

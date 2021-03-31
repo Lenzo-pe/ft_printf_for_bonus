@@ -6,13 +6,33 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 15:30:18 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 21:25:42 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_printright(t_speci *val, t_edit edit, long double n)
+static int		exponent(long double n)
+{
+	int e;
+
+	e = 0;
+	if (!n)
+		return (0);
+	while ((long unsigned)n / 10)
+	{
+		n /= 10;
+		e++;
+	}
+	while (!((long unsigned)n))
+	{
+		n *= 10;
+		e--;
+	}
+	return (e);
+}
+
+static void		ft_printright(t_speci *val, t_edit edit, long double n, char *xxe)
 {
 	ft_putnchar(' ', edit.spaces);
 	if (val->mode.negat)
@@ -24,10 +44,13 @@ static void		ft_printright(t_speci *val, t_edit edit, long double n)
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 	if (n != INFINITY && n != NAN)
-		ft_putstr("e+00");
+	{
+		ft_putstr("e");
+		ft_putstr(xxe);
+	}
 }
 
-static void		ft_printleft(t_speci *val, t_edit edit, long double n)
+static void		ft_printleft(t_speci *val, t_edit edit, long double n, char *xxe)
 {
 	if (val->mode.negat)
 		ft_putchar('-');
@@ -37,16 +60,19 @@ static void		ft_printleft(t_speci *val, t_edit edit, long double n)
 		ft_putchar('+');
 	ft_putstr(val->str);
 	if (n != INFINITY && n != NAN)
-		ft_putstr("e+00");
+	{
+		ft_putstr("e");
+		ft_putstr(xxe);
+	}
 	ft_putnchar(' ', edit.spaces);
 }
 
-static void		ft_printexponent(t_speci *val, t_edit edit, long double n)
+static void		ft_printexponent(t_speci *val, t_edit edit, long double n, char *xxe)
 {
 	if (!val->mode.left)
-		ft_printright(val, edit, n);
+		ft_printright(val, edit, n, xxe);
 	else
-		ft_printleft(val, edit, n);
+		ft_printleft(val, edit, n, xxe);
 }
 
 static t_edit	ft_floatlab(t_speci *val)
@@ -76,9 +102,12 @@ static void		ft_setnegative(t_speci *val)
 
 void		ft_exponent(t_speci *val, va_list ap)
 {
-	long double	n;
-	t_edit		edit;
-
+	t_edit			edit;
+	char			*xxe;
+	long double		n;
+	int				e;
+	
+	e = 0;
 	val->slen += 4;
 	n = va_arg(ap, double);
 	if (!val->mode.preci)
@@ -106,7 +135,9 @@ void		ft_exponent(t_speci *val, va_list ap)
 		val->str = ft_ftoa(n, val->preci);
 	val->slen += ft_strlen(val->str);
 	edit = ft_floatlab(val);
-	ft_printexponent(val, edit, n);
+	e = exponent(n);
+	xxe = ft_ietoa(e, 3);
+	ft_printexponent(val, edit, n, xxe);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
 }

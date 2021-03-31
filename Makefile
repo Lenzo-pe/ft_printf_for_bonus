@@ -10,7 +10,7 @@ SRC = ft_printf.c \
 		utils_alloc.c \
 		\
 		ft_itoa.c ft_ftoa.c ft_xtoa.c\
-		ft_atoi.c \
+		ft_atoi.c ft_ietoa.c\
 		\
 		ft_whatisnext.c ft_settings.c\
 		\
@@ -20,7 +20,7 @@ SRC = ft_printf.c \
 		ft_porcent.c ft_number.c \
 		ft_float.c ft_exponent.c \
 		\
-		ft_mathlab.c \
+		ft_labs.c \
 		\
 
 OBS = $(SRC:.c=.o)

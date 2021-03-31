@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 15:14:24 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:52:33 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ typedef struct	s_specifiers
 	int			len;
 	int			width;
 	int			preci;
-	char		*str;
 	int			slen;
+	char		*str;
 	t_modes		mode;
 	t_utils		util;
 }				t_speci;
@@ -97,7 +97,8 @@ size_t			ft_strnlen(const char *str, size_t maxlen);
 size_t			ft_nbrlen(long long n);
 size_t			xnbrlen(unsigned long long n);
 
-t_edit			ft_mathlab(t_speci *val);
+t_edit			ft_numberlab(t_speci *val);
+t_edit			ft_asciilab(t_speci *val);
 
 int				ft_isdigit(int c);
 int				ft_isalpha(int c);
@@ -113,4 +114,6 @@ int				ft_atoi(const char *nptr);
 char			*ft_xtoa(unsigned long long n, int c);
 char			*ft_itoa(long long n);
 char			*ft_ftoa(long double n, size_t len);
+char			*ft_ietoa(long long n, size_t e);
+
 #endif

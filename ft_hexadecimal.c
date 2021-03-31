@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 01:10:54 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:53:37 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_hexadecimal(t_speci *val, va_list ap, int def)
 	}
 	else
 		val->str = ft_xtoa(n, def);
-	edit = ft_mathlab(val);
+	edit = ft_numberlab(val);
 	ft_printhexa(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;
 	ft_strdel(&val->str);

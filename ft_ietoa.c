@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mathlab.c                                       :+:      :+:    :+:   */
+/*   ft_ietoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 13:09:12 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/25 14:54:57 by lenzo-pe         ###   ########.fr       */
+/*   Created: 2021/03/30 20:30:36 by lenzo-pe          #+#    #+#             */
+/*   Updated: 2021/03/30 20:30:53 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_edit	ft_mathlab(t_speci *val)
+char	*ft_ietoa(long long n, size_t e)
 {
-	t_edit	edit;
+	char	*str;
+	size_t	len;
 
-	if (val->slen > val->preci)
+	len = ft_nbrlen(n);
+	if (n < 0)
 	{
-		edit.spaces = val->width - val->slen;
-		edit.zeros = 0;
+		len++;
+		str = ft_strdup("-");
+		n = ft_abs(n);
 	}
 	else
-	{
-		edit.spaces = val->width - val->preci;
-		edit.zeros = val->preci - val->slen;
-	}
-	if (edit.spaces < 0)
-		edit.spaces = 0;
-	if (val->mode.zero && !val->mode.preci && !val->mode.left)
-	{
-		edit.zeros = edit.spaces;
-		edit.spaces = 0;
-	}
-	return (edit);
+		str = ft_strdup("");
+	while (len < e--)
+		str = ft_joindel(str, "0");
+	str = ft_joindelall(str, ft_itoa(n));
+	return (str);
 }
