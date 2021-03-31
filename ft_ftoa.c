@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 13:05:50 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:46:34 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,32 @@ static	long double ft_round(long double n)
 	return((unsigned long)n);
 }
 
+static	char *ft_left(char *str, size_t len, unsigned long right, long double n)
+{
+	str = ft_joindeld(str, ".");
+	while(len--)
+	{
+		n *= 10;
+		right = n;
+		right %= 10;
+		str = ft_joindel(str, ft_itoa(right));
+	}
+	return (str);
+}
 
 char		*ft_ftoa(long double n, size_t len)
 {
-	uint64_t	left;
-	uint64_t	right;
-	char		*str;
+	unsigned long	left;
+	unsigned long	right;
+	char			*str;
 
+	right = 0;
 	if (!len)
 		n = ft_round(n);
 	left = (long unsigned)n;
 	n = n - (long double)left;
 	str = ft_itoa(left);
 	if (len)
-	{
-		str = ft_joindel(str, ".");
-		while(len--)
-		{
-			n *= 10;
-			right = n;
-			right %= 10;
-			str = ft_joindelall(str, ft_itoa(right));
-		}
-	}
+		str = ft_left(str, len, right, n);
 	return (str);
 }

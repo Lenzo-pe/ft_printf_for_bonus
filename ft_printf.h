@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/31 00:18:18 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:56:18 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ char			*ft_strcat(char *dest, const char *src);
 char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strdup(const char *str);
 void			ft_strdel(char **str);
-char			*ft_joindel(char *s1, char const *s2);
-char			*ft_joindelall(char *s1, char *s2);
+char			*ft_joindeld(char *s1, char const *s2);
+char			*ft_joindel(char *s1, char *s2);
 
 void			ft_strrev(char *str);
 size_t			ft_strlen(const char *str);
@@ -116,6 +116,6 @@ int				ft_atoi(const char *nptr);
 char			*ft_xtoa(unsigned long long n, int c);
 char			*ft_itoa(long long n);
 char			*ft_ftoa(long double n, size_t len);
-char			*ft_ietoa(long long n, size_t e);
+char			*ft_iwtoa(long long n, size_t w);
 
 #endif

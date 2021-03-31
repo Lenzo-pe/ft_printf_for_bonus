@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:20:26 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 02:11:51 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 16:55:57 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		ft_strdel(char **str)
 	*str = NULL;
 }
 
-char		*ft_joindel(char *s1, char const *s2)
+char		*ft_joindeld(char *s1, char const *s2)
 {
 	char	*ptr;
 	size_t	s1_len;
@@ -70,7 +70,7 @@ char		*ft_joindel(char *s1, char const *s2)
 	return (ptr);
 }
 
-char		*ft_joindelall(char *s1, char *s2)
+char		*ft_joindel(char *s1, char *s2)
 {
 	char	*ptr;
 	size_t	s1_len;

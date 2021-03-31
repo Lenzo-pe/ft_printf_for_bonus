@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/31 00:38:23 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 17:02:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void		ft_exponent(t_speci *val, va_list ap)
 	val->slen += ft_strlen(val->str);
 	edit = ft_floatlab(val);
 	e = exponent(n);
-	xxe = ft_ietoa(e, 3);
+	xxe = ft_iwtoa(e, 3);
 	ft_printexponent(val, edit, n, xxe);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
