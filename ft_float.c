@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:29:19 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:19:03 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,14 @@
 static void		ft_printright(t_speci *val, t_edit edit)
 {
 	ft_putnchar(' ', edit.spaces);
-	if (val->mode.negat)
-		ft_putchar('-');
-	else if (val->mode.space)
-		ft_putchar(' ');
-	else if (val->mode.plus)
-		ft_putchar('+');
+	ft_putsignal(val);
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 }
 
 static void		ft_printleft(t_speci *val, t_edit edit)
 {
-	if (val->mode.negat)
-		ft_putchar('-');
-	else if (val->mode.space)
-		ft_putchar(' ');
-	else if (val->mode.plus)
-		ft_putchar('+');
+	ft_putsignal(val);
 	ft_putstr(val->str);
 	ft_putnchar(' ', edit.spaces);
 }
@@ -68,15 +58,13 @@ void		ft_float(t_speci *val, va_list ap)
 	}
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
-	if (n == INFINITY)
+	if (n == INFINITY || n == NAN)
 	{
-		val->str = ft_strdup("inf");
 		val->mode.zero = false;
-	}
-	else if (n == NAN)
-	{
-		val->str = ft_strdup("nan");
-		val->mode.zero = false;
+		if (n == INFINITY)
+			val->str = ft_strdup("inf");
+		else if (n == NAN)
+			val->str = ft_strdup("nan");
 	}
 	else
 		val->str = ft_ftoa(n, val->preci);

@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:33:28 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/03/31 00:18:18 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void			ft_putnstr(char *str, size_t n);
 void			ft_putnchar(char c, size_t n);
 void			ft_putchar(unsigned char c);
 void			ft_putstr(char *str);
+void			ft_putsignal(t_speci *val);
 
 char			*ft_strcat(char *dest, const char *src);
 char			*ft_strcpy(char *dest, const char *src);

@@ -22,6 +22,8 @@ SRC = ft_printf.c \
 		\
 		ft_labs.c \
 		\
+		ft_putsignal.c \
+		\
 
 OBS = $(SRC:.c=.o)
 
