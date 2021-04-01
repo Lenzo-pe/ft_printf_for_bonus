@@ -10,14 +10,14 @@
 
 int		main(void)
 {
-	float	d;
 	int a, b;
+	double	d;
 
-	d  = 1.0 / 0;
-	a = ft_printf(" %.e", 44444.4);
+	d = 0.000010;
+
+	a = printf("%e", d);
 	printf("\n");
-	b = printf(" %.e", 44444.4);
-
-	printf("\n %d\n %d\n", a, b);
+	b = ft_printf("%e", d);
+	printf("\n%d::%d", a, b);
 	return (0);
 }

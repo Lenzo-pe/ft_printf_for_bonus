@@ -7,7 +7,7 @@ SRC = ft_printf.c \
 		utils_put.c utils_len.c \
 		utils_isa.c utils_ism.c \
 		utils_util.c utils_abs.c \
-		utils_alloc.c \
+		utils_alloc.c utils_float.c \
 		\
 		ft_itoa.c ft_ftoa.c ft_xtoa.c\
 		ft_atoi.c ft_iwtoa.c\
@@ -18,7 +18,7 @@ SRC = ft_printf.c \
 		ft_hexadecimal.c ft_pointer.c \
 		ft_string.c ft_ascii.c \
 		ft_number.c \
-		ft_float.c ft_exponent.c \
+		ft_float.c ft_floatexp.c \
 		\
 		ft_labs.c \
 		\

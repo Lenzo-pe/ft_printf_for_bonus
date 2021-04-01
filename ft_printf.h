@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/31 16:56:18 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:40:44 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_utilities
 {
 	int			skip;
 	int			error;
+	char		*temp;
 }				t_utils;
 
 typedef struct	s_specifiers
@@ -74,10 +75,13 @@ void			ft_ascii(t_speci *val, va_list ap);
 void			ft_string(t_speci *val, va_list ap);
 void			ft_number(t_speci *val, va_list ap);
 void			ft_float(t_speci *val, va_list ap);
-void			ft_exponent(t_speci *val, va_list ap);
+void			ft_floatexp(t_speci *val, va_list ap);
 
 long long		ft_abs(long long n);
 long double		ft_fabs(long double n);
+char			*ft_exx(int e);
+int				ft_exp		(long double n);
+long double		ft_powe(long double n, int e);
 
 void			ft_putnstr(char *str, size_t n);
 void			ft_putnchar(char c, size_t n);
