@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/31 16:46:34 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/01 20:01:42 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,61 @@ static	long double ft_round(long double n)
 	return((unsigned long)n);
 }
 
-static	char *ft_left(char *str, size_t len, unsigned long right, long double n)
+static int		ft_tochar(long long n)
 {
-	str = ft_joindeld(str, ".");
-	while(len--)
+	n = ft_abs(n);
+	return ((n % 10) + '0');
+}
+
+static char	*ft_nbrcpy(char *dest, long long n)
+{
+	size_t	len;
+	size_t	maxlen;
+
+	len = ft_nbrlen(n);
+	maxlen = len;
+	if (!n)
+		dest[0] = '0';
+	while (n)
 	{
-		n *= 10;
-		right = n;
-		right %= 10;
-		str = ft_joindel(str, ft_itoa(right));
+		dest[--len] = ft_tochar(n);
+		n /= 10;
 	}
-	return (str);
+	dest[maxlen] = '\0';
+	return (dest);
+}
+
+static void	ft_right(char *str, double long n, size_t len)
+{
+	size_t	zeros;
+
+	zeros = 0;
+	while (!(n * 10) && len--)
+	{
+		zeros++;
+		n *= 10;
+	}
+	*str++ = '.';
+	while (zeros--)
+		*str++ = '0';
+	while (len--)
+		n *= 10;
+	ft_nbrcpy(str, n);
 }
 
 char		*ft_ftoa(long double n, size_t len)
 {
 	unsigned long	left;
-	unsigned long	right;
+	long double		right;
 	char			*str;
 
 	right = 0;
 	if (!len)
-		n = ft_round(n);
-	left = (long unsigned)n;
-	n = n - (long double)left;
-	str = ft_itoa(left);
-	if (len)
-		str = ft_left(str, len, right, n);
+		return(ft_itoa(ft_round(n)));
+	left = (unsigned)n;
+	right = n - (long double)left;
+	str = (char *)malloc(sizeof(char) * (ft_nbrlen(left) + len + 2));
+	ft_nbrcpy(str, left);
+	ft_right(str + ft_nbrlen(left), right, len);
 	return (str);
 }

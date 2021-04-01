@@ -8,16 +8,15 @@
 #include <stddef.h>
 #include <string.h>
 
+
+
 int		main(void)
 {
-	int a, b;
-	double	d;
-
-	d = 0.000010;
-
-	a = printf("%e", d);
-	printf("\n");
-	b = ft_printf("%e", d);
-	printf("\n%d::%d", a, b);
+	int i = 0;
+	float d = 4789.69;
+	char *str = ft_ftoa(d, 30);
+	printf("%s", str);
+	printf("\n%.16f\n", d);
+	ft_strdel(&str);
 	return (0);
 }
