@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:15:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 01:58:42 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 11:50:49 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ long double	ft_powe(long double n, int e)
 {
 	if (e > 0)
 		while (e--)
-			n /= 10;
+			n *= 0.1;
 	else if(e < 0)
 		while (e++)
-			n *= 10;
+			n *= 10.0;
 	return(n);
 }
 

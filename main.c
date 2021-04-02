@@ -13,14 +13,14 @@
 int		main(void)
 {
 	int i, z;
-	double d = .001;
-	char *str = ft_ftoa(d, 36);
+	double d = 42.0;
+	char *str = ft_ftoa(d, 2);
 	printf("f%s", str);
 	printf("\n");
-	i = printf("-.16e ", 1.0 / 1000);
+	i = printf("p%-9.2e ", 42.0);
 	printf("\n");
-	z = ft_printf("-.16e ", 1.0 / 1000);
-	printf("\n%d::%d\n", d, i);
+	z = ft_printf("f%-9.2e ", 42.0);
+	printf("\n%d::%d\n", z, i);
 	ft_strdel(&str);
 	return (0);
 }
