@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 01:47:58 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 01:59:58 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		ft_floatexp(t_speci *val, va_list ap)
 
 	n = va_arg(ap, double);
 	e = 0;
-	if (n != INFINITY && n != NAN)
+	if (n != INFINITY && n != NAN && n != -INFINITY)
 	{
 		val->slen += 4;
 		e = ft_exp(n);

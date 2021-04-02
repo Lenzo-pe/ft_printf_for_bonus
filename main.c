@@ -12,14 +12,15 @@
 
 int		main(void)
 {
-	int i = 0;
+	int i, z;
 	double d = .001;
 	char *str = ft_ftoa(d, 36);
 	printf("f%s", str);
 	printf("\n");
-	printf(" %10e ", 1.0 / 0);
+	i = printf("-.16e ", 1.0 / 1000);
 	printf("\n");
-	ft_printf(" %10e ", 1.0 / 0);
+	z = ft_printf("-.16e ", 1.0 / 1000);
+	printf("\n%d::%d\n", d, i);
 	ft_strdel(&str);
 	return (0);
 }
