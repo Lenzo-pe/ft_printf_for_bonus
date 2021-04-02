@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 13:14:45 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:29:45 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,19 @@
 static void		ft_printright(t_speci *val, t_edit edit, long double n)
 {
 	ft_putnchar(' ', edit.spaces);
-	if (val->mode.negat)
-		ft_putchar('-');
-	else if (val->mode.space)
-		ft_putchar(' ');
-	else if (val->mode.plus)
-		ft_putchar('+');
+	ft_putsignal(val);
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
-	if (n != INFINITY && n == n)
+	if (n != INFINITY && !ft_nan(n))
 		ft_putstr(val->util.temp);
 }
 
 static void		ft_printleft(t_speci *val, t_edit edit, long double n)
 {
-	if (val->mode.negat)
-		ft_putchar('-');
-	else if (val->mode.space)
-		ft_putchar(' ');
-	else if (val->mode.plus)
-		ft_putchar('+');
+	ft_putsignal(val);
 	ft_putstr(val->str);
-	if (n != INFINITY && n == n)
-	{
+	if (n != INFINITY && !ft_nan(n))
 		ft_putstr(val->util.temp);
-	}
 	ft_putnchar(' ', edit.spaces);
 }
 
@@ -64,14 +52,10 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	t_edit			edit;
 	long double		n;
 	int				e;
-	bool			na;
-	
-	na = false;
-	n = va_arg(ap, double);
-	if (n != n)
-		na = true;
+
 	e = 0;
-	if (n != INFINITY && !na && n != -INFINITY)
+	n = va_arg(ap, double);
+	if (n != INFINITY && !ft_nan(n) && n != -INFINITY)
 	{
 		val->slen += 4;
 		e = ft_exp(n);
@@ -87,12 +71,12 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	}
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
-	if (n == INFINITY || na)
+	if (n == INFINITY || ft_nan(n))
 	{
 		val->mode.zero = false;
 		if (n == INFINITY)
 			val->str = ft_strdup("inf");
-		else if (na)
+		else if (ft_nan(n))
 			val->str = ft_strdup("nan");
 	}
 	else
@@ -102,6 +86,6 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	ft_printexponent(val, edit, n);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
-	if (n != INFINITY && !na)
+	if (n != INFINITY && !ft_nan(n))
 		ft_strdel(&val->util.temp);
 }
