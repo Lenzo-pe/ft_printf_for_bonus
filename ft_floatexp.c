@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 18:28:54 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:40:47 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		ft_printexponent(t_speci *val, t_edit edit, long double n)
 
 static void		ft_setnegative(t_speci *val, long double n)
 {
-	if (n >= 0)
+	if (n >= 0 || ft_nan(n))
 		return ;
 	val->slen++;
 	val->mode.negat = true;

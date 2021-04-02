@@ -12,8 +12,12 @@
 
 int		main(void)
 {
-	int i;
+	int i, z;
 	double d = 4456.0123444555;
-	i = printf("%.10g", d);
+	i = printf(" %10f ", 0.0 / 0);
+	printf("\n");
+	z = ft_printf(" %10f ", 0.0 / 0);
+	printf("\n");
+	printf(" %d::%d ", i, z);
 	return (0);
 }

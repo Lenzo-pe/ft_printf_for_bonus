@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 18:28:15 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:41:03 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		ft_printfloat(t_speci *val, t_edit edit)
 
 static void		ft_setnegative(t_speci *val, long double n)
 {
-	if (n >= 0)
+	if (n >= 0 || ft_nan(n))
 		return ;
 	val->slen++;
 	val->mode.negat = true;
