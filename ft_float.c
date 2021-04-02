@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 17:06:23 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:43:16 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,7 @@ void		ft_float(t_speci *val, va_list ap)
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
 	if (ft_inf(n) || ft_nan(n))
-	{
-		val->mode.zero = false;
-		if (ft_inf(n))
-			val->str = ft_strdup("inf");
-		else if (ft_nan(n))
-			val->str = ft_strdup("nan");
-	}
+		ft_strnan(val, n);
 	else
 		val->str = ft_ftoa(n, val->preci);
 	val->slen += ft_strlen(val->str);

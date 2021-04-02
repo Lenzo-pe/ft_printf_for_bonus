@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:15:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 11:50:49 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:53:16 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,13 @@ char		*ft_exx(int e)
 	str[3] = e % 10 + '0';
 	str[4] = '\0';
 	return (str);
+}
+
+void		ft_strnan(t_speci *val, long double n)
+{
+		val->mode.zero = false;
+		if (ft_inf(n))
+			val->str = ft_strdup("inf");
+		else if (ft_nan(n))
+			val->str = ft_strdup("nan");
 }
