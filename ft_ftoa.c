@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/01 20:01:42 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/01 22:51:12 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	long double ft_round(long double n)
 
 static int		ft_tochar(long long n)
 {
-	n = ft_abs(n);
+	//n = ft_abs(n);
 	return ((n % 10) + '0');
 }
 
@@ -56,24 +56,21 @@ static char	*ft_nbrcpy(char *dest, long long n)
 
 static void	ft_right(char *str, double long n, size_t len)
 {
-	size_t	zeros;
+	long long unsigned i;
 
-	zeros = 0;
-	while (!(n * 10) && len--)
+	*str++ = '.';
+	while (len--)
 	{
-		zeros++;
+		i = n * 10;
+		*str++ = (i % 10) + '0';
 		n *= 10;
 	}
-	*str++ = '.';
-	while (zeros--)
-		*str++ = '0';
-	while (len--)
-		n *= 10;
-	ft_nbrcpy(str, n);
+	*str = '\0';	
 }
 
 char		*ft_ftoa(long double n, size_t len)
 {
+	size_t			leftlen;
 	unsigned long	left;
 	long double		right;
 	char			*str;
@@ -83,8 +80,10 @@ char		*ft_ftoa(long double n, size_t len)
 		return(ft_itoa(ft_round(n)));
 	left = (unsigned)n;
 	right = n - (long double)left;
-	str = (char *)malloc(sizeof(char) * (ft_nbrlen(left) + len + 2));
+	right = ft_fabs(right);
+	leftlen = ft_nbrlen(left);
+	str = (char *)malloc(sizeof(char) * (leftlen + len + 2));
 	ft_nbrcpy(str, left);
-	ft_right(str + ft_nbrlen(left), right, len);
+	ft_right(str + leftlen, right, len);
 	return (str);
 }

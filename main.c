@@ -13,10 +13,11 @@
 int		main(void)
 {
 	int i = 0;
-	float d = 4789.69;
-	char *str = ft_ftoa(d, 30);
-	printf("%s", str);
-	printf("\n%.16f\n", d);
+	double d = 4.1;
+	char *str = ft_ftoa(d, 20);
+	printf("f%s", str);
+	printf("\np%.20f\n", d);
+	ft_printf("\nf%.20f\n", d);
 	ft_strdel(&str);
 	return (0);
 }
