@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/01 15:40:44 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:22:34 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ void			ft_floatexp(t_speci *val, va_list ap);
 
 long long		ft_abs(long long n);
 long double		ft_fabs(long double n);
+int				ft_nan(long double n);
 char			*ft_exx(int e);
-int				ft_exp		(long double n);
+int				ft_exp(long double n);
 long double		ft_powe(long double n, int e);
 
 void			ft_putnstr(char *str, size_t n);

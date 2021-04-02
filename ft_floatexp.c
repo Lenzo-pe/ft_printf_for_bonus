@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 01:59:58 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:14:45 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void		ft_printright(t_speci *val, t_edit edit, long double n)
 		ft_putchar('+');
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
-	if (n != INFINITY && n != NAN)
+	if (n != INFINITY && n == n)
 		ft_putstr(val->util.temp);
 }
 
@@ -36,7 +36,7 @@ static void		ft_printleft(t_speci *val, t_edit edit, long double n)
 	else if (val->mode.plus)
 		ft_putchar('+');
 	ft_putstr(val->str);
-	if (n != INFINITY && n != NAN)
+	if (n != INFINITY && n == n)
 	{
 		ft_putstr(val->util.temp);
 	}
@@ -64,10 +64,14 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	t_edit			edit;
 	long double		n;
 	int				e;
-
+	bool			na;
+	
+	na = false;
 	n = va_arg(ap, double);
+	if (n != n)
+		na = true;
 	e = 0;
-	if (n != INFINITY && n != NAN && n != -INFINITY)
+	if (n != INFINITY && !na && n != -INFINITY)
 	{
 		val->slen += 4;
 		e = ft_exp(n);
@@ -83,12 +87,12 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	}
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
-	if (n == INFINITY || n == NAN)
+	if (n == INFINITY || na)
 	{
 		val->mode.zero = false;
 		if (n == INFINITY)
 			val->str = ft_strdup("inf");
-		else if (n == NAN)
+		else if (na)
 			val->str = ft_strdup("nan");
 	}
 	else
@@ -98,6 +102,6 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	ft_printexponent(val, edit, n);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
-	if (n != INFINITY && n != NAN)
+	if (n != INFINITY && !na)
 		ft_strdel(&val->util.temp);
 }
