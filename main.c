@@ -13,7 +13,7 @@
 int		main(void)
 {
 	int i = 0;
-	double d = 4.1;
+	double d = 4.2;
 	char *str = ft_ftoa(d, 20);
 	printf("f%s", str);
 	printf("\np%.20f\n", d);

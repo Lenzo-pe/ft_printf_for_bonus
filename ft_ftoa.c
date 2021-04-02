@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/01 22:51:12 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 00:24:20 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,24 @@ static char	*ft_nbrcpy(char *dest, long long n)
 	return (dest);
 }
 
-static void	ft_right(char *str, double long n, size_t len)
+static void	ft_right(char *str, long double n, size_t len)
 {
 	long long unsigned i;
-
 	*str++ = '.';
 	while (len--)
 	{
+		if (!len)
+		{
+			i = ft_round(n * 10);
+			i = (i % 10) + '0';
+			*str++ = i;
+			break ;
+		}
 		i = n * 10;
-		*str++ = (i % 10) + '0';
+		i = (i % 10) + '0';
+		*str++ = i;
 		n *= 10;
+		n -= (unsigned)n;
 	}
 	*str = '\0';	
 }
