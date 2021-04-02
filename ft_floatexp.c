@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/01 15:45:15 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 01:47:58 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,15 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	int				e;
 
 	n = va_arg(ap, double);
+	e = 0;
 	if (n != INFINITY && n != NAN)
+	{
 		val->slen += 4;
+		e = ft_exp(n);
+		val->util.temp = ft_exx(e);
+	}
 	if (!val->mode.preci)
 		val->preci = 6;
-	e = ft_exp(n);
-	val->util.temp = ft_exx(e);
 	n = ft_powe(n, e);
 	if (n < 0)
 	{	
@@ -95,5 +98,6 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	ft_printexponent(val, edit, n);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
-	ft_strdel(&val->util.temp);
+	if (n != INFINITY && n != NAN)
+		ft_strdel(&val->util.temp);
 }
