@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:08:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 15:29:45 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:28:54 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ static void		ft_printexponent(t_speci *val, t_edit edit, long double n)
 		ft_printleft(val, edit, n);
 }
 
-static void		ft_setnegative(t_speci *val)
+static void		ft_setnegative(t_speci *val, long double n)
 {
+	if (n >= 0)
+		return ;
 	val->slen++;
 	val->mode.negat = true;
 	val->mode.space = false;
@@ -55,7 +57,9 @@ void		ft_floatexp(t_speci *val, va_list ap)
 
 	e = 0;
 	n = va_arg(ap, double);
-	if (n != INFINITY && !ft_nan(n) && n != -INFINITY)
+		ft_setnegative(val, n);
+	n = ft_fabs(n);
+	if (!ft_inf(n) && !ft_nan(n))
 	{
 		val->slen += 4;
 		e = ft_exp(n);
@@ -64,21 +68,10 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	if (!val->mode.preci)
 		val->preci = 6;
 	n = ft_powe(n, e);
-	if (n < 0)
-	{	
-		ft_setnegative(val);
-		n = ft_fabs(n);
-	}
 	if (val->mode.space || val->mode.plus)
 		val->slen++;
-	if (n == INFINITY || ft_nan(n))
-	{
-		val->mode.zero = false;
-		if (n == INFINITY)
-			val->str = ft_strdup("inf");
-		else if (ft_nan(n))
-			val->str = ft_strdup("nan");
-	}
+	if (ft_inf(n) || ft_nan(n))
+		ft_strnan(val, n);
 	else
 		val->str = ft_ftoa(n, val->preci);
 	val->slen += ft_strlen(val->str);
@@ -86,6 +79,6 @@ void		ft_floatexp(t_speci *val, va_list ap)
 	ft_printexponent(val, edit, n);
 	val->len += val->slen + edit.spaces + edit.zeros;
 	ft_strdel(&val->str);
-	if (n != INFINITY && !ft_nan(n))
+	if (!ft_inf(n) && !ft_nan(n))
 		ft_strdel(&val->util.temp);
 }
