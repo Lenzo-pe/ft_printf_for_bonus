@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 00:49:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 02:05:24 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 01:39:24 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_convert(char *str, long long n, int i)
 {
-	long int	num;
+	__int128_t	num;
 
 	num = n;
 	if (n < 0)
@@ -32,14 +32,10 @@ char		*ft_itoa(long long n)
 	if (!n)
 		return (ft_strdup("0"));
 	len = ft_nbrlen(n);
-	if (n < 0)
-		len++;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	ft_convert(str, n, len - 1);
-	if (n < 0)
-		str[0] = '-';
 	str[len] = '\0';
 	return (str);
 }
