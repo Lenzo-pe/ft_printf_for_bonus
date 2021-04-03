@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 02:56:42 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 17:05:14 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 18:08:20 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@ static void		ft_printright(t_speci *val, t_edit edit)
 	ft_putsignal(val);
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
+	if (val->mode.hash && val->mode.preci && !val->preci)
+		ft_putchar('.');
 }
 
 static void		ft_printleft(t_speci *val, t_edit edit)
 {
 	ft_putsignal(val);
 	ft_putstr(val->str);
+	if (val->mode.hash && val->mode.preci && !val->preci)
+		ft_putchar('.');
 	ft_putnchar(' ', edit.spaces);
 }
 
@@ -55,7 +59,8 @@ void		ft_float(t_speci *val, va_list ap)
 		val->preci = 6;
 	ft_setnegative(val, n);
 	n = ft_fabs(n);
-	if (val->mode.space || val->mode.plus)
+	if (val->mode.space || val->mode.plus ||
+	(val->mode.hash && val->mode.preci && !val->preci))
 		val->slen++;
 	if (ft_inf(n) || ft_nan(n))
 		ft_strnan(val, n);
