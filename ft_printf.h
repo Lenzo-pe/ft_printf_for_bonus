@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 17:58:02 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 20:29:46 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@
 # include <stdint.h>
 # define FT_ERROR -1
 
-typedef struct	s_float
-{
-	bool		infinity;
-	bool		nanumber;
-}				t_float;
+// typedef struct	s_float
+// {
+// 	bool		infinity;
+// 	bool		nanumber;
+// }				t_float;
+
 
 typedef struct	s_editor
 {
@@ -49,6 +50,14 @@ typedef struct	s_modes
 	bool		space;
 }				t_modes;
 
+typedef struct	s_length
+{
+	bool		l;
+	bool		ll;
+	bool		h;
+	bool		hh;
+}				t_lenght;
+
 typedef struct	s_utilities
 {
 	int			skip;
@@ -66,6 +75,7 @@ typedef struct	s_specifiers
 	char		*str;
 	t_modes		mode;
 	t_utils		util;
+	t_lenght	lc;
 }				t_speci;
 
 int				ft_printf(const char *format, ...);
@@ -125,6 +135,8 @@ int				ft_isupper(int c);
 int				ft_islegal(int c);
 int				ft_isflag(int c);
 int				ft_isspecifier(int c);
+int				ft_islength(int c);
+
 
 int				ft_atoi(const char *nptr);
 char			*ft_xtoa(unsigned long long n, int c);

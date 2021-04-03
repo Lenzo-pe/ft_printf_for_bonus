@@ -6,11 +6,41 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/01 13:39:07 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:01:17 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	setshort(t_speci *val)
+{
+	if (!val->lc.h && !val->lc.hh)
+		val->lc.h = true;
+	else
+	{
+		val->lc.hh = true;
+		val->lc.h = false;
+	}
+}
+
+static void	setlong(t_speci *val)
+{
+	if (!val->lc.l && !val->lc.ll)
+		val->lc.l = true;
+	else
+	{
+		val->lc.ll = true;
+		val->lc.l = false;
+	}
+}
+
+static void setlength(int c, t_speci *val)
+{
+	if (c == 'l')
+		setlong(val);
+	if (c == 'h')
+		setshort(val);
+}
 
 static void	pre_settings(t_speci *val)
 {
@@ -21,6 +51,10 @@ static void	pre_settings(t_speci *val)
 	val->mode.negat = false;
 	val->mode.space = false;
 	val->mode.plus = false;
+	val->lc.l = false;
+	val->lc.ll = false;
+	val->lc.h = false;
+	val->lc.hh = false;
 	val->c = 0;
 	val->slen = 0;
 	val->width = 0;
@@ -39,6 +73,8 @@ static int	definef(const char *form, t_speci *val)
 	{
 		if (!(ft_islegal(ptr[i])))
 			return (0);
+		if (ft_islength(ptr[i]))
+			setlength(ptr[i], val);
 		i++;
 	}
 	val->util.skip = i;
