@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:17:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/31 00:21:10 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 01:10:56 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,20 @@ static void	ft_setnegative(t_speci *val)
 
 void		ft_integer(t_speci *val, va_list ap)
 {
-	t_edit	edit;
-	long	n;
+	t_edit		edit;
+	long long	n;
 
-	n = va_arg(ap, int);
-	val->slen = ft_nbrlen(n);
+
+	if (val->lc.ll)
+		n = va_arg(ap, long long);
+	else if(val->lc.l)
+		n = va_arg(ap, long);
+	else if (val->lc.hh)
+		n = (char)va_arg(ap, unsigned);
+	else if(val->lc.h)
+		n = (short)va_arg(ap, unsigned);
+	else
+		n = va_arg(ap, int);
 	if (n < 0)
 		ft_setnegative(val);
 	n = ft_abs(n);
@@ -67,6 +76,7 @@ void		ft_integer(t_speci *val, va_list ap)
 		val->slen++;
 		val->preci++;
 	}
+	val->slen = ft_strlen(val->str);
 	edit = ft_numberlab(val);
 	ft_printinteger(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;
