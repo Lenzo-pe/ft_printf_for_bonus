@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 20:29:46 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:15:07 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,7 @@ char			*ft_xtoa(unsigned long long n, int c);
 char			*ft_itoa(long long n);
 char			*ft_ftoa(long double n, size_t len);
 char			*ft_iwtoa(long long n, size_t w);
+char			*ft_utoa(unsigned long long n);
+
 
 #endif

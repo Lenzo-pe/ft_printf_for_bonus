@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:32:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 23:00:21 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:12:17 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ static void	ft_printinteger(t_speci *val, t_edit edit)
 void		ft_unsignedint(t_speci *val, va_list ap)
 {
 	t_edit				edit;
-	unsigned long	n;
+	unsigned long long	n;
 
 	if(val->lc.l)
 		n = va_arg(ap, unsigned long);
+	else if (val->lc.ll)
+		n = va_arg(ap, unsigned long long);
 	else
 		n = va_arg(ap, unsigned);
-	val->slen = ft_nbrlen(n);
 	if (!n && val->mode.preci && !val->preci)
 	{
 		val->slen--;
@@ -51,6 +52,7 @@ void		ft_unsignedint(t_speci *val, va_list ap)
 	}
 	else
 		val->str = ft_itoa(n);
+	val->slen = ft_strlen(val->str);
 	edit = ft_numberlab(val);
 	ft_printinteger(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;

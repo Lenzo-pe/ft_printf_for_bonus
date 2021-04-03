@@ -14,9 +14,9 @@ int		main(void)
 {
 	int i, z;
 	double d = 4456.0123444555;
-	i = printf(" %lu ", 34400908444423554421);
+	i = printf(" %lu ", 34400908423554421);
 	printf("\n");
-	z = ft_printf(" %lu ", 34400908444423554421);
+	z = ft_printf(" %lu ", 34400908423554421);
 	printf("\n");
 	printf(" %d::%d ", i, z);
 	return (0);

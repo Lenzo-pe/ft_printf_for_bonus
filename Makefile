@@ -10,7 +10,7 @@ SRC = ft_printf.c \
 		utils_alloc.c utils_float.c \
 		\
 		ft_itoa.c ft_ftoa.c ft_xtoa.c\
-		ft_atoi.c ft_iwtoa.c\
+		ft_atoi.c ft_iwtoa.c ft_utoa.c\
 		\
 		ft_whatisnext.c ft_settings.c\
 		\
