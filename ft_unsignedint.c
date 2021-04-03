@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:32:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 01:57:08 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:21:35 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ void		ft_unsignedint(t_speci *val, va_list ap)
 
 	n = va_arg_u(ap, val);
 	if (!n && val->mode.preci && !val->preci)
-	{
-		val->slen--;
 		val->str = ft_strdup("");
-	}
 	else
 		val->str = ft_utoa(n);
 	val->slen = ft_strlen(val->str);

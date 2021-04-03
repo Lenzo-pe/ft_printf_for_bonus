@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 12:12:20 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:47:59 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	ft_printright(t_speci *val, t_edit edit)
 
 static void	ft_printleft(t_speci *val, t_edit edit)
 {
-	ft_putnchar('0', edit.zeros);
 	if (val->mode.hash)
 		ft_putzerox(val);
+	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 	ft_putnchar(' ', edit.spaces);
 }
@@ -49,12 +49,11 @@ void		ft_hexadecimal(t_speci *val, va_list ap)
 	if (val->mode.hash)
 		val->slen += 2;
 	if (!n && val->mode.preci && !val->preci)
-	{
-		val->slen--;
 		val->str = ft_strdup("");
-	}
 	else
 		val->str = ft_xtoa(n, val->c);
+	if (val->mode.preci)
+		val->preci += 2;
 	val->slen += ft_strlen(val->str);
 	edit = ft_numberlab(val);
 	ft_printhexa(val, edit);
