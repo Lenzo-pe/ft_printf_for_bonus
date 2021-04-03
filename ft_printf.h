@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 23:15:07 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:30:55 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ size_t			ft_strlen(const char *str);
 size_t			ft_strnlen(const char *str, size_t maxlen);
 size_t			ft_nbrlen(long long n);
 size_t			xnbrlen(unsigned long long n);
+size_t			ft_unbrlen(unsigned long long n);
+
 
 t_edit			ft_numberlab(t_speci *val);
 t_edit			ft_asciilab(t_speci *val);

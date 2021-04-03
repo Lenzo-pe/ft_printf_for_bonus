@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 10:07:00 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 23:10:54 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:30:12 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ size_t	ft_strnlen(const char *str, size_t maxlen)
 }
 
 size_t	ft_nbrlen(long long n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!n)
+		return (1);
+	while (n)
+	{
+		n = (n / 10);
+		i++;
+	}
+	return (i);
+}
+size_t	ft_unbrlen(unsigned long long n)
 {
 	size_t	i;
 

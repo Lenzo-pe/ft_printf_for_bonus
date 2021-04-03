@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 23:13:18 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 23:14:37 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/02 23:31:19 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_utoa(unsigned long long n)
 
 	if (!n)
 		return (ft_strdup("0"));
-	len = ft_nbrlen(n);
+	len = ft_unbrlen(n);
 	if (n < 0)
 		len++;
 	str = (char *)malloc(sizeof(char) * (len + 1));
