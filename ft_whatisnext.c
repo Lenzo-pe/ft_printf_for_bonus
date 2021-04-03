@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:04:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 23:01:17 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:31:09 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	pre_settings(t_speci *val)
 	val->mode.negat = false;
 	val->mode.space = false;
 	val->mode.plus = false;
+	val->mode.hash = false;
 	val->lc.l = false;
 	val->lc.ll = false;
 	val->lc.h = false;

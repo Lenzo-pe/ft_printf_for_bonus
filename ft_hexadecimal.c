@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 02:18:17 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:44:27 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 static void	ft_printright(t_speci *val, t_edit edit)
 {
 	ft_putnchar(' ', edit.spaces);
+	if (val->mode.hash)
+		ft_putzerox(val);
 	ft_putnchar('0', edit.zeros);
 	ft_putstr(val->str);
 }
@@ -22,6 +24,8 @@ static void	ft_printright(t_speci *val, t_edit edit)
 static void	ft_printleft(t_speci *val, t_edit edit)
 {
 	ft_putnchar('0', edit.zeros);
+	if (val->mode.hash)
+		ft_putzerox(val);
 	ft_putstr(val->str);
 	ft_putnchar(' ', edit.spaces);
 }

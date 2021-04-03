@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/02 01:35:53 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 02:41:46 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char		*ft_ftoa(long double n, size_t len)
 	left = (unsigned)n;
 	right = n - (long double)left;
 	right = ft_fabs(right);
-	leftlen = ft_nbrlen(left);
+	leftlen = ft_unbrlen(left);
 	str = (char *)malloc(sizeof(char) * (leftlen + len + 2));
 	ft_nbrcpy(str, left);
 	ft_right(str + leftlen, right, len);

@@ -15,9 +15,10 @@ int		main(void)
 	int i, z;
 	double d = 4456.0123444555;
 	unsigned long long u = 3434239879423554421;
-	i = printf(" %ld ", LONG_MAX + 1);
+	i = printf("a::%#x", 1234564879116);
 	printf("\n");
-	z = ft_printf(" %ld ", LONG_MAX + 1);
+	printf("\n");
+	z = ft_printf("a::%#x", 1234564879116);
 	printf("\n");
 	printf(" %d::%d ", i, z);
 	return (0);

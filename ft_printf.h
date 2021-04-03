@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:43:45 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 02:17:02 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:41:29 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_modes
 	bool		negat;
 	bool		plus;
 	bool		space;
+	bool		hash;
 }				t_modes;
 
 typedef struct	s_length
@@ -107,6 +108,8 @@ void			ft_putchar(unsigned char c);
 void			ft_putstr(char *str);
 
 void			ft_putsignal(t_speci *val);
+void			ft_putzerox(t_speci *val);
+
 void			ft_strnan(t_speci *val, long double n);
 
 char			*ft_strcat(char *dest, const char *src);
