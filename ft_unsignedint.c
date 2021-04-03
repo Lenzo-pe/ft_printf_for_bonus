@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:32:54 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 00:35:04 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 01:57:08 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,7 @@ void		ft_unsignedint(t_speci *val, va_list ap)
 	t_edit				edit;
 	unsigned long long	n;
 
-	n = 0;
-	if (val->lc.ll)
-		n = va_arg(ap, unsigned long long);
-	else if(val->lc.l)
-		n = va_arg(ap, unsigned long);
-	else if (val->lc.hh)
-		n = (unsigned char)va_arg(ap, unsigned);
-	else if(val->lc.h)
-		n = (unsigned short)va_arg(ap, unsigned);
-	else
-		n = va_arg(ap, unsigned);
+	n = va_arg_u(ap, val);
 	if (!n && val->mode.preci && !val->preci)
 	{
 		val->slen--;
