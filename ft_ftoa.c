@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 17:00:02 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:09:36 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_right(char *str, long double n, size_t len)
 			i = ft_round(n * 10);
 		i = (i % 10) + '0';
 		*str++ = i;
-		n /= 0.1;
+		n *= 10;
 		n -= (unsigned)n;
 	}
 	*str = '\0';	
@@ -73,15 +73,15 @@ static void	ft_right(char *str, long double n, size_t len)
 
 char		*ft_ftoa(long double n, size_t len)
 {
-	size_t			leftlen;
-	unsigned long	left;
-	long double		right;
-	char			*str;
+	size_t				leftlen;
+	unsigned long long	left;
+	long double			right;
+	char				*str;
 
 	right = 0;
 	if (!len)
 		return(ft_itoa(ft_round(n)));
-	left = (unsigned)n;
+	left = (unsigned long long)n;
 	right = n - (long double)left;
 	right = ft_fabs(right);
 	leftlen = ft_unbrlen(left);
