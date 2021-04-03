@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 11:44:27 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:03:51 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void		ft_hexadecimal(t_speci *val, va_list ap)
 	unsigned long long	n;
 
 	n = va_arg_u(ap, val);
+	if (!n)
+		val->mode.hash = false;
 	if (!n && val->mode.preci && !val->preci)
 	{
 		val->slen--;
