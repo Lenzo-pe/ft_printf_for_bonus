@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:16:33 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 02:41:46 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:00:02 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_right(char *str, long double n, size_t len)
 			i = ft_round(n * 10);
 		i = (i % 10) + '0';
 		*str++ = i;
-		n *= 10;
+		n /= 0.1;
 		n -= (unsigned)n;
 	}
 	*str = '\0';	
