@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 00:51:53 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/29 00:52:27 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 00:50:12 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char		*ft_xtoa(unsigned long long n, int c)
 {
-	char			*ptr;
-	unsigned long	temp;
-	int				i;
+	char				*ptr;
+	unsigned long long	temp;
+	unsigned 			i;
 
 	i = 0;
 	if (!n)

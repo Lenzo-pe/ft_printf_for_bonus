@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:50:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/03/30 23:14:30 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 00:43:58 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,19 @@ static void	ft_printhexa(t_speci *val, t_edit edit)
 
 void		ft_hexadecimal(t_speci *val, va_list ap)
 {
-	t_edit			edit;
-	unsigned long	n;
+	t_edit				edit;
+	unsigned long long	n;
 
-	n = va_arg(ap, unsigned);
-	val->slen = xnbrlen(n);
+	if (val->lc.ll)
+		n = va_arg(ap, unsigned long long);
+	else if(val->lc.l)
+		n = va_arg(ap, unsigned long);
+	else if (val->lc.hh)
+		n = (unsigned char)va_arg(ap, unsigned);
+	else if(val->lc.h)
+		n = (unsigned short)va_arg(ap, unsigned);
+	else
+		n = va_arg(ap, unsigned);
 	if (!n && val->mode.preci && !val->preci)
 	{
 		val->slen--;
@@ -48,6 +56,7 @@ void		ft_hexadecimal(t_speci *val, va_list ap)
 	}
 	else
 		val->str = ft_xtoa(n, val->c);
+	val->slen = ft_strlen(val->str);
 	edit = ft_numberlab(val);
 	ft_printhexa(val, edit);
 	val->len += edit.spaces + edit.zeros + val->slen;
