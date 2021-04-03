@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 00:10:52 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2021/04/03 11:56:40 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:10:51 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	ft_putzerox(t_speci *val)
 		ft_putstr("0X");
 	else
 		ft_putstr("0x");
-	val->slen += 2;
 }
