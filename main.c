@@ -1,25 +1,23 @@
-#include "ft_printf.h"
 #include <stdio.h>
-#include <locale.h>
-#include <unistd.h>
-#include <locale.h>
-#include <wchar.h>
-#include <math.h>
-#include <stddef.h>
-#include <string.h>
-
-
+#include "ft_printf.h"
 
 int		main(void)
 {
-	int i, z;
-	double d = 4456.0123444555;
-	unsigned long long u = 3434239879423554421;
-	i = printf("p%#.f ", 0.1);
+	int a, b, c;
+
+	a = 19;
+	b = 14;
+	c = 123456789;
+	// printf("\none\n");
+	// int i = printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, -42, a, b, 42, -a, -b, -42, -a, -b, 42, -a, b, -42, -a, b, 42, a, -b, -42, a, -b, 42);
+
+	// printf("\none\n");
+	// int d = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, -42, a, b, 42, -a, -b, -42, -a, -b, 42, -a, b, -42, -a, b, 42, a, -b, -42, a, -b, 42);
+	int d =    printf(":%*.*u:", 0, 0, 0);
 	printf("\n");
+	int i = ft_printf(":%*.*u:", 0, 0, 0);
 	printf("\n");
-	z = ft_printf("f%#.f ", 0.1);
+	printf("%d::%d", d, i);
 	printf("\n");
-	printf(" %d::%d ", i, z);
 	return (0);
 }
